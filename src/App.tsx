@@ -7,7 +7,7 @@ const App = () => {
   const [query, setQuery] = useState<string>('')
   const inputRef = useRef(null)
   const getWeatherInfo = async (query: string) => {
-    const data = await (await fetch(`http://api.weatherapi.com/v1/current.json?key=d1d0e09ae144437f9ad153247233105&q=${query}&lang=tr`)).json()
+    const data = await (await fetch(`https://api.weatherapi.com/v1/current.json?key=d1d0e09ae144437f9ad153247233105&q=${query}&lang=tr`)).json()
     setFetchState(data)
     console.log(data)
     return fetchState
