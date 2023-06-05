@@ -4,10 +4,11 @@ import { useHotkey } from "@react-hook/hotkey"
 
 const App = () => {
   const [fetchState, setFetchState] = useState<null | object | any>(null)
+  const apiKey = process.env.API_KEY
   const [query, setQuery] = useState<string>('')
   const inputRef = useRef(null)
   const getWeatherInfo = async (query: string) => {
-    const data = await (await fetch(`https://api.weatherapi.com/v1/current.json?key=d1d0e09ae144437f9ad153247233105&q=${query}&lang=tr`)).json()
+    const data = await (await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}&lang=tr`)).json()
     setFetchState(data)
     console.log(data)
     return fetchState
